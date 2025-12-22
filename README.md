@@ -1,4 +1,4 @@
-🎧 MoodFlow AI
+# 🎧 MoodFlow AI
 
 Audio-Driven Music Recommendation System using Spotify
 
@@ -6,7 +6,7 @@ MoodFlow AI is an end-to-end machine learning application that analyzes user-upl
 
 This project demonstrates applied digital signal processing, ML inference, API integration, and product-level system design.
 
-🚀 Features
+## 🚀 Features
 
 🎵 Upload an audio file (MP3/WAV/OGG)
 
@@ -22,7 +22,7 @@ This project demonstrates applied digital signal processing, ML inference, API i
 
 🧩 Modular, scalable project architecture
 
-🧠 System Architecture
+## 🧠 System Architecture
 User Audio Upload
         ↓
 Audio Feature Extraction (Librosa)
@@ -38,7 +38,7 @@ Streamlit UI
 
 Each component is isolated into its own module to reflect real-world ML system design.
 
-🛠️ Tech Stack
+$$ 🛠️ Tech Stack
 
 Languages
 
@@ -60,7 +60,8 @@ APIs
 
 Spotify Web API (search, recommendations, audio features)
 
-📁 Project Structure
+## 📁 Project Structure
+
 MoodFlow/
 ├── src/
 │   ├── audio/          # Audio loading & feature extraction
@@ -80,7 +81,7 @@ MoodFlow/
 
 
 
-⚙️ Setup & Installation
+## ⚙️ Setup & Installation
 1️⃣ Clone the repository
 git clone https://github.com/yourusername/moodflow-ai.git
 cd moodflow-ai
@@ -88,7 +89,7 @@ cd moodflow-ai
 2️⃣ Create & activate a virtual environment
 python -m venv venv
 source venv/bin/activate  # macOS/Linux
-# venv\Scripts\activate   # Windows
+venv\Scripts\activate   # Windows
 
 3️⃣ Install dependencies
 pip install -r requirements.txt
@@ -119,7 +120,7 @@ Then open:
 
 http://localhost:8501
 
-🧪 Example Workflow
+## 🧪 Example Workflow
 
 Upload a song file
 
@@ -137,7 +138,7 @@ Playlists
 
 UI displays recommendations with explanations
 
-🧩 Design Highlights
+## 🧩 Design Highlights
 
 Modular architecture: clean separation of concerns (audio, ML, API, UI)
 
@@ -147,7 +148,7 @@ Explainability: provides insight into why recommendations were made
 
 Scalable foundation: easy to replace heuristics with trained ML models
 
-🔮 Future Improvements
+## 🔮 Future Improvements
 
 Train supervised ML models for genre & mood classification
 
@@ -161,7 +162,7 @@ Deploy as a hosted web service
 
 Expand unit test coverage
 
-📌 Why This Project
+## 📌 Why This Project
 
 This project was built to explore:
 
