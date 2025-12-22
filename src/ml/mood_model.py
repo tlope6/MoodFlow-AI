@@ -1,17 +1,14 @@
-from typing import Dict
+def predict_mood(audio_feat: dict) -> str:
+    energy = audio_feat.get("energy", 0)
+    valence = audio_feat.get("valence", 0)
+    dance = audio_feat.get("danceability", 0)
 
-def predict_mood(features: Dict[str, float]) -> str:
-    
-    # Baseline heuristic mood classifier.
-    # Upgrade later to ML model or Spotify audio-features mapping.
-    
-    tempo = features.get("tempo_bpm", 0.0)
-    centroid = features.get("spectral_centroid_mean", 0.0)
-
-    if tempo >= 130 and centroid >= 2300:
-        return "energetic"
-    if tempo <= 85 and centroid <= 1800:
-        return "calm"
-    if 90 <= tempo <= 125 and centroid >= 2000:
+    if energy > 0.75 and valence > 0.6:
         return "happy"
+    if energy > 0.75 and valence < 0.4:
+        return "energetic"
+    if energy < 0.35 and valence < 0.4:
+        return "sad"
+    if energy < 0.35:
+        return "calm"
     return "neutral"

@@ -8,6 +8,7 @@ from src.recommender.playlist_engine import PlaylistEngine
 from src.explainer.explainer import explain_recommendation
 from src.utils.history_manager import append_history, read_history
 from src.ui.components import card_title, render_artist, render_track
+from src.api.spotify_client import SPOTIFY_SEED_GENRES
 
 
 def main():
@@ -40,12 +41,9 @@ def main():
     genre_guess = predict_genre(user_features)
 
     sp = SpotifyClient()
-    seed_genres = set(sp.available_seed_genres())
 
-    # Spotify has a fixed list of genres; map your guess to a valid one.
-    # We'll improve mapping later; for now, fallback to 'pop' if not valid.
-    genre = genre_guess if genre_guess in seed_genres else "pop"
-
+    genre = genre_guess if genre_guess in   SPOTIFY_SEED_GENRES else "pop"
+   
     append_history({"mood": mood, "genre": genre})
 
     colA, colB = st.columns([1, 1])
