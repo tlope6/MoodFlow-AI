@@ -1,14 +1,24 @@
 def predict_mood(audio_feat: dict) -> str:
-    energy = audio_feat.get("energy", 0)
-    valence = audio_feat.get("valence", 0)
-    dance = audio_feat.get("danceability", 0)
 
-    if energy > 0.75 and valence > 0.6:
+    energy = audio_feat.get("energy", 0.5)
+    tempo = audio_feat.get("tempo_bpm", 120)
+    spectral_centroid = audio_feat.get("spectral_centroid", 2000)
+    
+    # High energy + fast tempo = happy/energetic
+    if energy > 0.7 and tempo > 120:
         return "happy"
-    if energy > 0.75 and valence < 0.4:
+    
+    # High energy + slower tempo = energetic but intense
+    if energy > 0.7 and tempo <= 120:
         return "energetic"
-    if energy < 0.35 and valence < 0.4:
+    
+    # Low energy + slow tempo = sad/melancholic
+    if energy < 0.4 and tempo < 100:
         return "sad"
-    if energy < 0.35:
+    
+    # Low energy + medium tempo = calm/relaxed
+    if energy < 0.4:
         return "calm"
+    
+    # Everything else
     return "neutral"

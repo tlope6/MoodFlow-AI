@@ -5,16 +5,35 @@ def card_title(title: str, subtitle: str | None = None):
     if subtitle:
         st.caption(subtitle)
 
-def render_artist(a: dict):
-    st.markdown(f"**[{a['name']}]({a['url']})**")
-    if a.get("image"):
-        st.image(a["image"], width=120)
-    if a.get("genres"):
-        st.caption("Genres: " + ", ".join(a["genres"][:4]))
-
 def render_track(t: dict):
-    st.markdown(f"**[{t['title']}]({t['url']})** — {t['artist']}")
-    if t.get("cover"):
-        st.image(t["cover"], width=160)
-    if t.get("preview"):
-        st.audio(t["preview"])
+    title = t.get("title", "Unknown Track")
+    artist = t.get("artist", "Unknown Artist")
+    url = t.get("url")
+    preview = t.get("preview")
+    cover = t.get("cover")
+
+    if url:
+        st.markdown(f"**[{title}]({url})** — {artist}")
+    else:
+        st.markdown(f"**{title}** — {artist}")
+
+    if preview:
+        st.audio(preview)
+
+    if cover:
+        st.image(cover, width=160)
+
+
+def render_artist(a: dict):
+    name = a.get("name", "Unknown Artist")
+    url = a.get("url")
+    image = a.get("image")
+
+    if url:
+        st.markdown(f"**[{name}]({url})**")
+    else:
+        st.markdown(f"**{name}**")
+
+    if image:
+        st.image(image, width=120)
+

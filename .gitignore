@@ -1,6 +1,9 @@
 venv/
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+.Python
 src/secrets/spotify_keys.py
 data/history/*
 models/*.pkl
